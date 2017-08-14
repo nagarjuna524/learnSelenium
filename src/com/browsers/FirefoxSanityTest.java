@@ -34,10 +34,6 @@ public class FirefoxSanityTest {
 		System.setProperty("webdriver.gecko.driver", path + "/drivers/geckodriver");
 		WebDriver driver = new FirefoxDriver();
 
-		// System.setProperty("webdriver.chrome.driver", path +
-		// "/drivers/chromedriver");
-		// WebDriver driver = new FirefoxDriver();
-
 		autoSuggestionGoogle(driver);
 		// autoSuggestionMakeMyTrip(driver);
 
