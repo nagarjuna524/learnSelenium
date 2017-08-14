@@ -4,16 +4,14 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+
+import com.DriverHerlper.DriverHelper;
 
 public class WebTable {
 
 	public static void main(String[] args) {
 
-		String path = System.getProperty("user.dir") + "/drivers/geckodriver";
-		System.setProperty("webdriver.gecko.driver", path);
-		
-		WebDriver driver = new FirefoxDriver();
+		WebDriver driver = DriverHelper.getDriver("chrome");
 
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
