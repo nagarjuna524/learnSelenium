@@ -10,13 +10,17 @@ public class DriverHelper {
 		String OSNAME = System.getProperty("os.name").toLowerCase();
 		String path = System.getProperty("user.dir");
 
-		if (OSNAME.contains("windows")) {
+		switch (OSNAME) {
+		case "linux":
+			System.setProperty("webdriver.chrome.driver", path + "/drivers/linux32/chromedriver");
+			System.setProperty("webdriver.gecko.driver", path + "/drivers/linux32/geckodriver");
+			break;
+		case "windows":
 			System.setProperty("webdriver.chrome.driver", path + "/drivers/windows32/chromedriver.exe");
 			System.setProperty("webdriver.gecko.driver", path + "/drivers/windows32/geckodriver.exe");
-
-		} else {
-			System.setProperty("webdriver.chrome.driver", path + "/drivers/linux32/chromedriver");
-			System.setProperty("webdriver.gecko.driver", path + "/drivers/linux32/geckodriver.exe");
+			break;
+		default:
+			break;
 		}
 
 		if (browserName.equals("chrome")) {
@@ -24,6 +28,5 @@ public class DriverHelper {
 		} else {
 			return new FirefoxDriver();
 		}
-
 	}
 }
