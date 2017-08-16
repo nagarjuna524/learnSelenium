@@ -8,25 +8,24 @@ public class DriverHelper {
 
 	public static WebDriver getDriver(String browserName) {
 		String OSNAME = System.getProperty("os.name").toLowerCase();
-		String path = System.getProperty("user.dir");
+		String PATH = System.getProperty("user.dir");
 
-		switch (OSNAME) {
-		case "linux":
-			System.setProperty("webdriver.chrome.driver", path + "/drivers/linux32/chromedriver");
-			System.setProperty("webdriver.gecko.driver", path + "/drivers/linux32/geckodriver");
-			break;
-		case "windows":
-			System.setProperty("webdriver.chrome.driver", path + "/drivers/windows32/chromedriver.exe");
-			System.setProperty("webdriver.gecko.driver", path + "/drivers/windows32/geckodriver.exe");
-			break;
-		default:
-			break;
+		if (OSNAME.contains("windows")) {
+			System.setProperty("webdriver.chrome.driver", PATH + "/drivers/windows32/chromedriver.exe");
+			System.setProperty("webdriver.gecko.driver", PATH + "/drivers/windows32/geckodriver.exe");
+		} else if (OSNAME.contains("linux")) {
+			System.setProperty("webdriver.chrome.driver", PATH + "/drivers/linux32/chromedriver");
+			System.setProperty("webdriver.gecko.driver", PATH + "/drivers/linux32/geckodriver");
+		} else {
+			// TO DO
 		}
 
 		if (browserName.equals("chrome")) {
 			return new ChromeDriver();
-		} else {
+		} else if (browserName.equals("firefox")) {
 			return new FirefoxDriver();
+		} else {
+			return new ChromeDriver();
 		}
 	}
 }
