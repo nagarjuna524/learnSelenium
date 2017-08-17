@@ -29,9 +29,15 @@ public class FirefoxSanityTest {
 	 */
 	public static void main(String[] args) {
 
-		String path = System.getProperty("user.dir");
+		String OSNAME = System.getProperty("os.name").toLowerCase();
+		String PATH = System.getProperty("user.dir");
 
-		System.setProperty("webdriver.gecko.driver", path + "/drivers/geckodriver");
+		if (OSNAME.contains("windows")) {
+			System.setProperty("webdriver.gecko.driver", PATH + "/drivers/windows32/geckodriver.exe");
+		} else {
+			System.setProperty("webdriver.gecko.driver", PATH + "/drivers/linux32/geckodriver");
+		}
+
 		WebDriver driver = new FirefoxDriver();
 
 		autoSuggestionGoogle(driver);
