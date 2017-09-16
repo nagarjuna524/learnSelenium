@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 
-import com.DriverHerlper.DriverHelper;
+import com.DriverHelper.DriverHelper;
 
 public class DragAndDrop {
 
