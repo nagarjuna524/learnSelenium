@@ -3,9 +3,10 @@ package com.AutomationFramework;
 import java.util.Set;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import com.DriverHelper.DriverHelper;
 
 public class WindowExamples {
 
@@ -13,7 +14,10 @@ public class WindowExamples {
 
 	@Test
 	public void test_CloseAllWindowsExceptMainWindow() {
-		driver = new FirefoxDriver();
+
+		// Create a new instance of the FireFox driver
+		driver = DriverHelper.getDriver("firefox");
+
 		// It will open Naukri website with multiple windows
 		driver.get("http://www.naukri.com/");
 
@@ -51,5 +55,4 @@ public class WindowExamples {
 		else
 			return false;
 	}
-
 }

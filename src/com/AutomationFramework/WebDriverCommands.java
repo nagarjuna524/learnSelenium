@@ -1,13 +1,15 @@
 package com.AutomationFramework;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+
+import com.DriverHelper.DriverHelper;
 
 public class WebDriverCommands {
 
 	public static void main(String[] args) {
+
 		// Create a new instance of the FireFox driver
-		WebDriver driver = new FirefoxDriver();
+		WebDriver driver = DriverHelper.getDriver("firefox");
 
 		// Storing the Application Url in the String variable
 		String url = "http://www.store.demoqa.com";
