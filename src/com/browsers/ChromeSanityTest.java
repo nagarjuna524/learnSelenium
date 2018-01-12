@@ -33,7 +33,7 @@ public class ChromeSanityTest {
 		String OSNAME = System.getProperty("os.name").toLowerCase();
 		String path = System.getProperty("user.dir");
 		if (OSNAME.contains("windows")) {
-			System.setProperty("webdriver.chrome.driver", path + "/drivers/windows32/chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver", path + "/drivers/windows32/chromedriver235/chromedriver.exe");
 		} else {
 			System.setProperty("webdriver.chrome.driver", path + "/drivers/linux32/chromedriver");	
 		}
