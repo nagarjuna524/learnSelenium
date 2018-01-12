@@ -11,7 +11,7 @@ public class DriverHelper {
 		String PATH = System.getProperty("user.dir");
 
 		if (OSNAME.contains("windows")) {
-			System.setProperty("webdriver.chrome.driver", PATH + "/drivers/windows32/chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver", PATH + "/drivers/windows32/chromedriver235/chromedriver.exe"); // Supports Chrome v62-64
 			System.setProperty("webdriver.gecko.driver", PATH + "/drivers/windows32/geckodriver.exe");
 		} else if (OSNAME.contains("linux")) {
 			System.setProperty("webdriver.chrome.driver", PATH + "/drivers/linux32/chromedriver");
