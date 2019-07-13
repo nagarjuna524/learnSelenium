@@ -30,10 +30,9 @@ public class FirefoxSanityTest {
 	public static void main(String[] args) {
 
 		String OSNAME = System.getProperty("os.name").toLowerCase();
-		String PATH = System.getProperty("user.dir");
-
+		String PATH = System.getProperty("user.dir");		
 		if (OSNAME.contains("windows")) {
-			System.setProperty("webdriver.gecko.driver", PATH + "/drivers/windows32/geckodriver.exe");
+			System.setProperty("webdriver.gecko.driver", PATH + "/drivers/windows64/geckodriver-v0.24.0-win64/geckodriver.exe");
 		} else {
 			System.setProperty("webdriver.gecko.driver", PATH + "/drivers/linux32/geckodriver");
 		}
@@ -55,8 +54,10 @@ public class FirefoxSanityTest {
 		// WebElement element = driver.switchTo().activeElement();
 		WebElement element = driver.findElement(By.xpath("//input[@title='Search']"));
 		element.sendKeys("Guru99");
-		List<WebElement> lstGoogle = driver.findElement(By.xpath("//ul[@role='listbox']"))
-				.findElements(By.xpath("//li[@role='presentation']"));
+//		List<WebElement> lstGoogle = driver.findElement(By.xpath("//ul[@role='listbox']"))
+//				.findElements(By.xpath("//li[@role='presentation']"));
+		
+		List<WebElement> lstGoogle = driver.findElements(By.xpath("//li[@role='presentation']"));
 		System.out.println(lstGoogle.size());
 		for (int i = 0; i < lstGoogle.size(); i++) {
 			System.out.println(lstGoogle.get(i).getText());
