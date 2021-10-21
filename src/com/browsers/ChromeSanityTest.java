@@ -6,10 +6,12 @@ package com.browsers;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 
 /**
@@ -37,9 +39,13 @@ public class ChromeSanityTest {
 		} else {
 			System.setProperty("webdriver.chrome.driver", path + "/drivers/linux32/chromedriver");	
 		}
-		
-		WebDriver driver = new ChromeDriver();
 
+		//WebDriver driver = new ChromeDriver();
+
+		ChromeOptions chromeOptions = new ChromeOptions();
+		//WebDriverManager.chromedriver().driverVersion("85.0.4183.38").setup();
+		WebDriverManager.chromedriver().setup();
+		WebDriver driver = new ChromeDriver(chromeOptions);
 		autoSuggestionGoogle(driver);
 		// autoSuggestionMakeMyTrip(driver);
 

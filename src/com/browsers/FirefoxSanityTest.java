@@ -6,6 +6,7 @@ package com.browsers;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -37,6 +38,9 @@ public class FirefoxSanityTest {
 			System.setProperty("webdriver.gecko.driver", PATH + "/drivers/linux32/geckodriver");
 		}
 
+		//WebDriver driver = new FirefoxDriver();
+
+		WebDriverManager.firefoxdriver().setup();
 		WebDriver driver = new FirefoxDriver();
 
 		autoSuggestionGoogle(driver);
